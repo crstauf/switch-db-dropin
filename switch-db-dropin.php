@@ -129,7 +129,7 @@ class switch_db_dropin {
         }
 
 	static function action_init() {
-		if ( 2 > count( self::$activated_plugins ) ) return;
+		if ( 1 > count( self::$activated_plugins ) ) return;
 
         $localize_array = array(
             'ajaxurl' => admin_url( 'admin-ajax.php' ),
@@ -153,7 +153,7 @@ class switch_db_dropin {
 
         $bar->add_node( array(
             'id' => 'switch-db-dropin',
-            'title' => '<span class="ab-icon dashicons dashicons-download"></span><span class="ab-label">' . ( false !== self::$current_dropin ? self::$supported_plugins[self::$current_dropin]['abbr'] : 'DB' ) . '</span>',
+            'title' => '<span class="ab-icon dashicons dashicons-download"></span><span class="ab-label">DB' . ( false !== self::$current_dropin ? ':' . self::$supported_plugins[self::$current_dropin]['abbr'] : 'DB' ) . '</span>',
             'href' => '#',
         ) );
 
