@@ -137,6 +137,9 @@ class switch_db_dropin {
             'nonce' => wp_create_nonce( __FILE__ ),
         );
 
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX )
+			return;
+
         add_action( 'admin_bar_menu', array( __CLASS__, 'action_admin_bar_menu' ), 600 );
 
         wp_register_script( 'switch-db-dropin', plugin_dir_url( __FILE__ ) . 'scripts' . ( !defined( 'COMPRESS_SCRIPTS' ) || COMPRESS_SCRIPTS ? '.min' : '' ) . '.js', array( 'jquery' ), 'init' );
